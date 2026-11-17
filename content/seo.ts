@@ -1,4 +1,4 @@
-import { portfolio } from "./portfolio";
+﻿﻿import { portfolio } from "./portfolio";
 
 export const siteUrl = "https://www.zyradigitals.com";
 
@@ -69,9 +69,5 @@ export const pageMeta = {
   work: {
     title: "Selected Work",
     description: "A selection of websites and digital experiences built by Zyra Digitals.",
-  },
-  resume: {
-    title: "Meet the Founder",
-    description: "Mohan Prasath S, founder of Zyra Digitals - a creative digital agency in Coimbatore.",
   },
 };

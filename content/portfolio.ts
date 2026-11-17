@@ -1,4 +1,4 @@
-export type ProjectMedia = { src: string; alt: string };
+﻿﻿export type ProjectMedia = { src: string; alt: string };
 export type Project = {
   slug: string;
   title: string;
@@ -30,49 +30,33 @@ export const portfolio = {
   shortName: "Zyra",
   title: "Creative Digital Agency",
   headline: { firstLine: "We build websites", secondLine: "that make businesses", emphasis: "stand out." },
-  biography: "Good design. Clean code. Websites that actually do their job.",
-  availability: "Got a business that needs a website? An idea for a new brand? Or just something you want to make happen? Let’s talk. We’ll figure it out together.",
+  biography: "We build websites that attract more leads, bring in new clients and help your business grow.",
+  availability: "Let's talk about what we can build together.",
   email: "zyradigitalsofficial@gmail.com",
   socials: [
     { label: "Instagram", url: "https://www.instagram.com/zyradigitals.co/" },
     { label: "LinkedIn", url: "https://www.linkedin.com/company/zyra-digitals/" },
   ],
-  resume: {
-    url: "/resume/Sufyaan_resume_fullstack.pdf", label: "Résumé", date: "September 2026",
-    variants: {
-      fullstack: {
-        label: "Software engineering", route: "/resume", url: "/resume/Sufyaan_resume_fullstack.pdf",
-        filename: "Sufyaan_resume_fullstack.pdf",
-        pages: [
-          { src: "/resume/fullstack-1.jpg", alt: "Software engineering résumé page 1: backend summary and Wells Fargo and CAST Software experience" },
-          { src: "/resume/fullstack-2.jpg", alt: "Software engineering résumé page 2: technical skills and education" },
-        ],
-      },
-      data: {
-        label: "Data engineering", route: "/resume/data", url: "/resume/Sufyaan_resume_data.pdf",
-        filename: "Sufyaan_resume_data.pdf",
-        pages: [{ src: "/resume/data-1.jpg", alt: "Data engineering résumé: summary, Wells Fargo and CAST Software experience, technical skills and education" }],
-      },
-    },
-  },
   founder: {
     name: "Mohan Prasath",
     role: "Founder - Zyra Digitals",
     paragraphs: [
-      "Building websites, figuring things out and making businesses look better online.",
-      "Started Zyra Digitals with one simple idea: build better websites for businesses.",
-      "40+ websites later, still building and always learning.",
+      "I started Zyra Digitals because I kept seeing businesses with great products held back by bad websites.",
+      "So I set out to fix that - building clean, fast, modern websites that actually bring in clients.",
+      "40+ websites across industries. Each one built from scratch, with real thought put into design, speed and results.",
+      "I work directly with every client. No middlemen, no templates, no shortcuts.",
     ],
   },
   services: [
-    { title: "Web development", description: "Websites that look good, work smoothly and don't make visitors want to leave." },
-    { title: "SEO", description: "Helping your website get noticed by the people searching for your business." },
-    { title: "Branding", description: "Logos and visual identities that make your business look like a brand, not just another business." },
+    { title: "Web development", description: "Custom websites built from scratch - fast, mobile-friendly and designed to convert visitors into paying customers. No templates, no bloat, just clean code that works." },
+    { title: "SEO", description: "Getting your website found on Google by people actively searching for what you offer. From on-page SEO to technical fixes, we make sure search engines actually understand your site." },
+    { title: "Branding", description: "Logos, colour systems and visual identities that make your business look professional and memorable. Good branding is the difference between a business people trust and one they scroll past." },
+    { title: "AI automation", description: "Smart automations that save your team hours every week - from AI-powered chatbots and lead capture to workflow automation that runs in the background while you focus on the work that matters." },
   ],
   approach: "Straightforward communication. Good design. Work that speaks for itself.",
   skills: [],
   dialogue: {
-    welcome: "Hey! I’m Mohan, founder of Zyra Digitals. We build websites for businesses. Pretty simple, right? Have a look around!",
+    welcome: "Hey, I'm Mohan! Let's grow your business.",
     returning: "Hey, you’re back! Ready for another look?",
     intro: "From business websites to e-commerce stores, branding and AI automations.",
     work: "A few things we’ve been building.",

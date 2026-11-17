@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿﻿import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "lenis/dist/lenis.css";
 import "./globals.css";

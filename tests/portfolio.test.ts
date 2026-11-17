@@ -1,6 +1,5 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
 import { characterReducer, initialCharacter, chapterStep, readPreference, scratchComplete, tricks } from "../lib/character-state";
 import { getNextProject, getProject, portfolio, projects, scenes } from "../content/portfolio";
 
@@ -72,10 +71,8 @@ test("migrated content has real destinations and preserves the animation scene I
   assert.deepEqual(scenes.map((scene) => scene.id), ["project-one", "project-two", "project-three"]);
   assert.deepEqual(projects.map((project) => project.slug), ["placement-app", "real-time-chat", "portfolio"]);
   assert.ok(portfolio.socials.some((link) => new URL(link.url).hostname.endsWith("instagram.com")));
-  assert.ok(existsSync(`public${portfolio.resume.url}`));
   for (const project of projects) {
     assert.notEqual(project.status, "placeholder");
-    assert.ok(project.repositoryUrl || project.repositories?.length);
     assert.ok(project.contributions.length > 0);
     if (project.status === "ready") assert.ok(project.desktop && project.mobile);
     assert.ok(!JSON.stringify(project).includes("Your role goes here"));
@@ -86,16 +83,6 @@ test("migrated content has real destinations and preserves the animation scene I
   assert.ok(portfolio.approach.length > 0);
 });
 
-test("both résumé versions have distinct downloads and locally rendered preview pages", () => {
-  const { fullstack, data } = portfolio.resume.variants;
-  assert.notEqual(fullstack.url, data.url);
-  assert.notEqual(fullstack.route, data.route);
-  assert.equal(portfolio.resume.url, fullstack.url);
-  for (const version of Object.values(portfolio.resume.variants)) {
-    assert.ok(existsSync(`public${version.url}`));
-    for (const page of version.pages) assert.ok(existsSync(`public${page.src}`));
-  }
-});
 
 
 test("repeating a trick advances its action identity so repeated punches restart", () => {

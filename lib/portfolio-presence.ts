@@ -1,4 +1,4 @@
-/** A single cancellable idle deadline; interactions always take priority. */
+﻿﻿/** A single cancellable idle deadline; interactions always take priority. */
 export function createIdleMonitor(onSleep: () => void, onWake: () => void, delay = 20_000) {
   let timer: ReturnType<typeof setTimeout> | undefined;
   let paused = true, asleep = false;
