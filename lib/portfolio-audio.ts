@@ -48,7 +48,7 @@ export function createPortfolioAudio(makeContext: () => AudioContext = browserCo
     try {
       if (!context || context.state === "closed") {
         context = makeContext(); output = context.createGain();
-        output.gain.value = .7; output.connect(context.destination);
+        output.gain.value = 2.2; output.connect(context.destination);
         context.onstatechange = updateStatus;
       }
       const current = context;
@@ -90,7 +90,7 @@ export function createPortfolioAudio(makeContext: () => AudioContext = browserCo
         gain.gain.exponentialRampToValueAtTime(.0001, at + duration);
         gain.connect(destination); return gain;
       };
-      const tone = (at: number, type: OscillatorType, from: number, to: number, duration: number, volume = .13, vibrato?: [number, number]) => {
+      const tone = (at: number, type: OscillatorType, from: number, to: number, duration: number, volume = .22, vibrato?: [number, number]) => {
         const oscillator = ctx.createOscillator(), gain = envelope(at, volume, duration);
         oscillator.type = type; oscillator.frequency.setValueAtTime(from, at);
         oscillator.frequency.exponentialRampToValueAtTime(to, at + duration);
@@ -116,38 +116,38 @@ export function createPortfolioAudio(makeContext: () => AudioContext = browserCo
         source.start(at); source.stop(at + duration);
       };
       switch (effect) {
-        case "blip": { const pitch = 392 * 2 ** (Math.random() * 5 / 12); tone(now, "triangle", pitch * 1.25, pitch, .07, .1); break; }
+        case "blip": { const pitch = 392 * 2 ** (Math.random() * 5 / 12); tone(now, "triangle", pitch * 1.25, pitch, .07, .18); break; }
         case "sleep": {
           const at = now + .35, oscillator = ctx.createOscillator(), gain = ctx.createGain(), filter = ctx.createBiquadFilter();
           oscillator.type = "sawtooth"; oscillator.frequency.setValueAtTime(262, at);
           oscillator.frequency.linearRampToValueAtTime(349, at + .35); oscillator.frequency.linearRampToValueAtTime(175, at + 1.2);
           filter.type = "lowpass"; filter.Q.value = 6; filter.frequency.setValueAtTime(400, at);
           filter.frequency.linearRampToValueAtTime(1100, at + .4); filter.frequency.linearRampToValueAtTime(300, at + 1.1);
-          gain.gain.setValueAtTime(0, at); gain.gain.linearRampToValueAtTime(.075, at + .3);
-          gain.gain.linearRampToValueAtTime(.06, at + .8); gain.gain.linearRampToValueAtTime(0, at + 1.2);
+          gain.gain.setValueAtTime(0, at); gain.gain.linearRampToValueAtTime(.14, at + .3);
+          gain.gain.linearRampToValueAtTime(.11, at + .8); gain.gain.linearRampToValueAtTime(0, at + 1.2);
           oscillator.connect(gain); gain.connect(filter); filter.connect(destination); track(oscillator, [gain, filter]);
           oscillator.start(at); oscillator.stop(at + 1.2); break;
         }
-        case "wake": tone(now, "triangle", 587, 880, .06, .14); tone(now + .07, "triangle", 880, 1319, .12, .14); break;
-        case "pat": tone(now, "sine", 523, 587, .16); tone(now + .13, "sine", 659, 784, .3, .12); break;
-        case "giggle": [988, 880, 932, 784].forEach((pitch, i) => tone(now + i * .12, "triangle", pitch, pitch * 1.12, .1)); break;
-        case "grab": tone(now, "triangle", 196, 523, .4, .14, [14, 14]); break;
-        case "drop": tone(now, "sine", 392, 220, .7, .15, [11, 80]); break;
-        case "dance": [523, 659, 784, 659, 587, 740, 880, 1047].forEach((pitch, i) => tone(now + i * .2, "triangle", pitch, pitch, .12, .11)); break;
-        case "panic": [988, 740, 988, 740, 988, 740, 988, 740].forEach((pitch, i) => tone(now + i * .1, "triangle", pitch, pitch, .08, .1)); break;
-        case "fly": tone(now, "triangle", 262, 784, 1.9, .12, [9, 20]); break;
-        case "hiccup": [.3, 1.2, 1.8].forEach(at => tone(now + at, "triangle", 700, 1400, .07)); break;
-        case "peekaboo": tone(now + 1.6, "triangle", 392, 1175, .18, .14); tone(now + 1.76, "triangle", 784, 1568, .14, .12); break;
-        case "selfie": noise(now + 1.1, .05, .25, "highpass", 2000); tone(now + 1.1, "square", 1800, 1200, .03, .06); break;
-        case "dizzy": tone(now, "sine", 880, 330, 1.2, .13, [7, 70]); break;
-        case "sneeze": noise(now + 1.15, .3, .35, "bandpass", 2600, 700, 1.2); tone(now + 1.15, "triangle", 880, 220, .25, .1); break;
-        case "sulk": tone(now, "triangle", 262, 247, .12, .12); tone(now + .15, "triangle", 220, 165, .3, .12); break;
-        case "vanish": tone(now + .2, "sine", 880, 110, 1, .12, [30, 40]); tone(now + 2.2, "sine", 110, 880, 1, .12, [30, 40]); break;
-        case "punch": tone(now, "sine", 160, 50, .18, .3); noise(now, .08, .3, "lowpass", 900); break;
-        case "bell": [0, .22].forEach(at => { tone(now + at, "sine", 1319, 1319, .6, .12); tone(now + at, "sine", 3296, 3296, .3, .05); }); break;
-        case "whoosh": noise(now, .45, .15, "bandpass", 300, 1800); break;
-        case "scratch": noise(now, .05, .08, "bandpass", 2500 + Math.random() * 2500); break;
-        case "shatter": noise(now, .3, .2, "highpass", 1500); [523, 659, 784, 1047].forEach((pitch, i) => tone(now + .08 + i * .08, "triangle", pitch, pitch, .2, .12)); break;
+        case "wake": tone(now, "triangle", 587, 880, .06, .24); tone(now + .07, "triangle", 880, 1319, .12, .24); break;
+        case "pat": tone(now, "sine", 523, 587, .16, .22); tone(now + .13, "sine", 659, 784, .3, .2); break;
+        case "giggle": [988, 880, 932, 784].forEach((pitch, i) => tone(now + i * .12, "triangle", pitch, pitch * 1.12, .1, .18)); break;
+        case "grab": tone(now, "triangle", 196, 523, .4, .24, [14, 14]); break;
+        case "drop": tone(now, "sine", 392, 220, .7, .26, [11, 80]); break;
+        case "dance": [523, 659, 784, 659, 587, 740, 880, 1047].forEach((pitch, i) => tone(now + i * .2, "triangle", pitch, pitch, .12, .2)); break;
+        case "panic": [988, 740, 988, 740, 988, 740, 988, 740].forEach((pitch, i) => tone(now + i * .1, "triangle", pitch, pitch, .08, .18)); break;
+        case "fly": tone(now, "triangle", 262, 784, 1.9, .22, [9, 20]); break;
+        case "hiccup": [.3, 1.2, 1.8].forEach(at => tone(now + at, "triangle", 700, 1400, .07, .22)); break;
+        case "peekaboo": tone(now + 1.6, "triangle", 392, 1175, .18, .24); tone(now + 1.76, "triangle", 784, 1568, .14, .22); break;
+        case "selfie": noise(now + 1.1, .05, .4, "highpass", 2000); tone(now + 1.1, "square", 1800, 1200, .03, .12); break;
+        case "dizzy": tone(now, "sine", 880, 330, 1.2, .24, [7, 70]); break;
+        case "sneeze": noise(now + 1.15, .3, .55, "bandpass", 2600, 700, 1.2); tone(now + 1.15, "triangle", 880, 220, .25, .18); break;
+        case "sulk": tone(now, "triangle", 262, 247, .12, .22); tone(now + .15, "triangle", 220, 165, .3, .22); break;
+        case "vanish": tone(now + .2, "sine", 880, 110, 1, .22, [30, 40]); tone(now + 2.2, "sine", 110, 880, 1, .22, [30, 40]); break;
+        case "punch": tone(now, "sine", 160, 50, .18, .5); noise(now, .08, .5, "lowpass", 900); break;
+        case "bell": [0, .22].forEach(at => { tone(now + at, "sine", 1319, 1319, .6, .22); tone(now + at, "sine", 3296, 3296, .3, .1); }); break;
+        case "whoosh": noise(now, .45, .28, "bandpass", 300, 1800); break;
+        case "scratch": noise(now, .05, .15, "bandpass", 2500 + Math.random() * 2500); break;
+        case "shatter": noise(now, .3, .35, "highpass", 1500); [523, 659, 784, 1047].forEach((pitch, i) => tone(now + .08 + i * .08, "triangle", pitch, pitch, .2, .22)); break;
       }
       return true;
     } catch { stop(); return false; }

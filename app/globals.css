@@ -251,8 +251,7 @@ em { font-style: normal; font-weight: 350; }
   .pill { font-size: 14px; gap: 20px; padding: 13px 17px; min-height: 44px; }
   .pill span { font-size: 18px; }
   .hero { min-height: 700px; }
-  .hero h1 { font-size: clamp(38px,10vw,56px); line-height: .94; margin-top: 8vh; }
-  .hero h1 br { display: none; }
+  .hero h1 { font-size: clamp(38px,10vw,56px); line-height: .94; margin-top: 8vh; letter-spacing: -.02em; word-spacing: .05em; }
   .hero-footer { bottom: 22px; font-size: 11px; }
   .hero-footer > span { max-width: 100px; }
   .scroll-cue { gap: 10px; }
@@ -326,8 +325,9 @@ em { font-style: normal; font-weight: 350; }
 }
 @media (max-height: 650px) and (min-width: 601px) { .hero { min-height: 650px; } .hero h1 { margin-top: 35px; font-size: 56px; } .chapter-sticky { min-height: 550px; } .chapter-caption { display: none; } .desktop-demo,.scratch-demo,.variants-demo { width: 55vw; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } .bio-word { opacity: 1 !important; } [data-reveal] { opacity: 1 !important; transform: none !important; } .project-chapter { height: 115svh; min-height: 800px; } }
-/* Keep the halftone shadow outside the button face. */
-.pill::after { display: none; }
+/* Force all arrows/symbols to render as text glyphs, not emoji on mobile */
+.pill span, .back-to-top, .footer-links a, .work-card-label, .scroll-cue, .next-project { font-variant-emoji: text; }
+[aria-hidden="true"] { font-variant-emoji: text; font-family: var(--font-funnel), system-ui, sans-serif; }
 .hero-footer .scroll-cue { margin-right: 65px; }
 
 @media (max-width: 600px) { .hero-footer .scroll-cue { max-width: 75px; margin-right: 45px; } }

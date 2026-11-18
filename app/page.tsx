@@ -56,7 +56,7 @@ export default function Home() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }} />
     <section className="hero grid-surface" data-character="hero" data-tour="hero" aria-labelledby="hero-heading">
       <header className="site-header"><a className="identity" href="#main"><Pinwheel className="identity-mark" /><span className="identity-copy"><strong>{portfolio.name}</strong><span>{portfolio.title}</span></span></a><ContactLink className="pill">Get in touch <span aria-hidden="true">↓</span></ContactLink></header>
-      <h1 id="hero-heading"><span className="hero-firstline">{portfolio.headline.firstLine}</span><br />{portfolio.headline.secondLine}<br /><em>{portfolio.headline.emphasis}</em></h1>
+      <h1 id="hero-heading"><span className="hero-firstline">{portfolio.headline.firstLine}</span>{" "}{portfolio.headline.secondLine}{" "}<em>{portfolio.headline.emphasis}</em></h1>
       <div className="hero-footer"><span>Good websites.<br />Good ideas. No nonsense.</span><a href="#about" className="scroll-cue">Selected work <span aria-hidden="true">↓</span></a></div>
     </section>
     <section id="about" className="introduction grid-surface" data-character="intro" data-tour="left" aria-label="About Zyra Digitals">
