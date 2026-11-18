@@ -1,4 +1,4 @@
-﻿﻿export type ProjectMedia = { src: string; alt: string };
+﻿export type ProjectMedia = { src: string; alt: string };
 export type Project = {
   slug: string;
   title: string;
@@ -29,7 +29,7 @@ export const portfolio = {
   name: "Zyra Digitals",
   shortName: "Zyra",
   title: "Creative Digital Agency",
-  headline: { firstLine: "We build websites", secondLine: "that make businesses", emphasis: "stand out." },
+  headline: { firstLine: "We build websites", secondLine: "that bring", emphasis: "more clients." },
   biography: "We build websites that attract more leads, bring in new clients and help your business grow.",
   availability: "Let's talk about what we can build together.",
   email: "zyradigitalsofficial@gmail.com",
@@ -56,7 +56,7 @@ export const portfolio = {
   approach: "Straightforward communication. Good design. Work that speaks for itself.",
   skills: [],
   dialogue: {
-    welcome: "Hey, I'm Mohan! Let's grow your business.",
+    welcome: "Hey there! I'm Mohan. Let's build something great together.",
     returning: "Hey, you’re back! Ready for another look?",
     intro: "From business websites to e-commerce stores, branding and AI automations.",
     work: "A few things we’ve been building.",
