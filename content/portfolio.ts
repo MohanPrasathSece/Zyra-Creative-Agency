@@ -20,7 +20,7 @@ export type Project = {
   mobile?: ProjectMedia;
   tablet?: ProjectMedia;
   comparison?: ProjectMedia;
-  sections: { title: string; body: string; media?: ProjectMedia }[];
+  sections: { title: string; body: string; media?: ProjectMedia; desktopMedia?: ProjectMedia; mobileMedia?: ProjectMedia }[];
 };
 
 // Agency identity and homepage copy follow the Zyra Digitals brief. Project
@@ -72,14 +72,24 @@ export const projects: Project[] = [
     color: "#173344", ink: "#f8f9f2", illustration: "orb", status: "draft",
     previewCopy: { firstLine: "Care you can", emphasis: "trust." },
     url: "https://www.precisionrct.co.uk/",
+    thumbnail: { src: "/projects/Endodontic Clinic/home page/endodontic - home page - 1.png", alt: "Endodontic Clinic home page preview" },
+    desktop: { src: "/projects/Endodontic Clinic/project page/endodontic - project - 1 - desktop.png", alt: "Endodontic Clinic – project page desktop" },
+    mobile: { src: "/projects/Endodontic Clinic/home page/1.png", alt: "Endodontic Clinic – mobile view" },
+    tablet: { src: "/projects/Endodontic Clinic/project page/project - 2 desktop.png", alt: "Endodontic Clinic – second desktop view" },
     summary: "A calm, trustworthy website for a London dental clinic - clear treatment information and easy booking.",
     contributions: [
       "Designed and built a clean, responsive website for a London dental clinic.",
       "Made treatments easy to understand and appointments easy to book.",
     ],
     sections: [
-      { title: "Trust from the first click", body: "A calm, trustworthy website for a London dental clinic. Clear treatment information and easy booking." },
-      { title: "Simple and reassuring", body: "Straightforward pages, helpful details and a layout that works just as well on a phone as it does on a desktop." },
+      { title: "Trust from the first click", body: "A calm, trustworthy website for a London dental clinic. Clear treatment information and easy booking.",
+        mobileMedia: { src: "/projects/Endodontic Clinic/project page/1.png", alt: "Endodontic Clinic – first mobile view" } },
+      { title: "Simple and reassuring", body: "Straightforward pages, helpful details and a layout that works just as well on a phone as it does on a desktop.",
+        desktopMedia: { src: "/projects/Endodontic Clinic/project page/project - 2 desktop.png", alt: "Endodontic Clinic – second desktop view" },
+        mobileMedia: { src: "/projects/Endodontic Clinic/project page/2.png", alt: "Endodontic Clinic – second mobile view" } },
+      { title: "Every detail considered", body: "A thorough build from top to bottom — every page optimised for clarity, trust and easy navigation.",
+        desktopMedia: { src: "/projects/Endodontic Clinic/project page/project - 3rd img - desktop.png", alt: "Endodontic Clinic – third desktop view" },
+        mobileMedia: { src: "/projects/Endodontic Clinic/project page/3.png", alt: "Endodontic Clinic – third mobile view" } },
     ],
   },
   {
@@ -88,14 +98,24 @@ export const projects: Project[] = [
     color: "#bca8eb", ink: "#121212", illustration: "terrain", status: "draft",
     previewCopy: { firstLine: "Marketing that", emphasis: "moves numbers." },
     url: "https://www.apex-revops.com/",
+    thumbnail: { src: "/projects/Marketing Agency/Home page/apex-desktop-home.png", alt: "Marketing Agency home page preview" },
+    desktop: { src: "/projects/Marketing Agency/project page/main image project desktop.png", alt: "Marketing Agency – project page desktop" },
+    mobile: { src: "/projects/Marketing Agency/Home page/apex-mobile-home.png", alt: "Marketing Agency – mobile view" },
+    tablet: { src: "/projects/Marketing Agency/project page/project-page-2nd-desktop.png", alt: "Marketing Agency – second desktop view" },
     summary: "A digital marketing agency website built to explain complex services clearly and turn visitors into enquiries.",
     contributions: [
       "Built a website for a digital marketing agency.",
       "Clear service pages and a straightforward path to getting in touch.",
     ],
     sections: [
-      { title: "Clear on what we do", body: "A digital marketing agency website built to explain complex services clearly and turn visitors into enquiries." },
-      { title: "Built to convert", body: "Strong structure, clear messaging and calls to action that make it easy for visitors to take the next step." },
+      { title: "Clear on what we do", body: "A digital marketing agency website built to explain complex services clearly and turn visitors into enquiries.",
+        mobileMedia: { src: "/projects/Marketing Agency/project page/1.png", alt: "Marketing Agency – first mobile view" } },
+      { title: "Built to convert", body: "Strong structure, clear messaging and calls to action that make it easy for visitors to take the next step.",
+        desktopMedia: { src: "/projects/Marketing Agency/project page/project-page-2nd-desktop.png", alt: "Marketing Agency – second desktop view" },
+        mobileMedia: { src: "/projects/Marketing Agency/project page/2.png", alt: "Marketing Agency – second mobile view" } },
+      { title: "Services that speak for themselves", body: "Every service page is structured to answer the right questions and make it easy for visitors to get in touch.",
+        desktopMedia: { src: "/projects/Marketing Agency/project page/project-3rd-desktop.png", alt: "Marketing Agency – third desktop view" },
+        mobileMedia: { src: "/projects/Marketing Agency/project page/3.png", alt: "Marketing Agency – third mobile view" } },
     ],
   },
   {

@@ -87,7 +87,7 @@ em { font-style: normal; font-weight: 350; }
 .device-phone .art-nav > span:nth-child(2) { display: none; }
 .device-phone .art-copy { font-size: clamp(26px,4vw,48px); top: 22%; left: 8%; }
 .device-phone .art-object { width: 120%; right: -25%; top: 45%; }
-.device-phone .art-bottom { font-size: 6px; padding: 10px; }
+.device-phone .project-media { object-position: center top; }
 .project-art { position: relative; aspect-ratio: 1.72; overflow: hidden; background: #111b22; color: #edf3e9; container-type: inline-size; }
 .project-media { object-fit: cover; object-position: top; }
 .art-nav { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 4% 5%; font-size: 1.1cqw; z-index: 2; }

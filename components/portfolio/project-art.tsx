@@ -14,9 +14,9 @@ export function ProjectArt({ project, variant = 0, thumbnail = false, mediaOverr
   </div>;
 }
 
-export function DeviceFrame({ project, mobile = false, variant = 0 }: { project: Project; mobile?: boolean; variant?: number }) {
+export function DeviceFrame({ project, mobile = false, variant = 0, desktopOverride, mobileOverride }: { project: Project; mobile?: boolean; variant?: number; desktopOverride?: ProjectMedia; mobileOverride?: ProjectMedia }) {
   return <div className={mobile ? "device-phone" : "device-browser"}>
     {mobile ? <div className="phone-top" aria-hidden="true"><span>9:41</span><i /><span>▰</span></div> : <div className="browser-bar" aria-hidden="true"><span className="browser-dots"><i /><i /><i /></span><span className="browser-address">{project.url ? new URL(project.url).hostname : project.title}</span><span>↗</span></div>}
-    {mobile && project.mobile ? <div className="project-art has-media"><Image src={project.mobile.src} alt={project.mobile.alt} fill sizes="260px" className="project-media" /></div> : <ProjectArt project={project} variant={variant} mediaOverride={variant === 1 ? project.tablet : undefined} />}
+    {mobile && (mobileOverride ?? project.mobile) ? <div className="project-art has-media"><Image src={(mobileOverride ?? project.mobile)!.src} alt={(mobileOverride ?? project.mobile)!.alt} fill sizes="260px" className="project-media" /></div> : <ProjectArt project={project} variant={variant} mediaOverride={desktopOverride ?? (variant === 1 ? project.tablet : undefined)} />}
   </div>;
 }
